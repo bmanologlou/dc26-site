@@ -67,9 +67,11 @@
      ---------------------------------------------------------- */
 
   /* Font families — PLACEHOLDERS, update when brand assets arrive */
-  --font-display:   'Inter', -apple-system, sans-serif;   /* Headlines */
-  --font-body:      'Inter', -apple-system, sans-serif;   /* Body text */
-  --font-mono:      'JetBrains Mono', monospace;          /* Labels, UI */
+  /* Single variable font — Inter covers all weights 100→900
+     Import: https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap */
+  --font-display:   'Inter', -apple-system, sans-serif;
+  --font-body:      'Inter', -apple-system, sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
 
   /* Font weights */
   --weight-regular:   400;
