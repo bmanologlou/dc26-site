@@ -3,179 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DC Drive — Color System</title>
+<title>DC Drive — Dark Theme Preview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: #e4e4e8; padding: 32px 24px; }
-.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-.label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6a6a75; margin-bottom: 2px; }
+body { font-family: 'Inter', sans-serif; background: #202027; padding: 0; }
+.wrap { max-width: 720px; margin: 0 auto; }
 
-/* Palette */
-.palette { display: flex; gap: 8px; }
-.group { flex: 1; display: flex; flex-direction: column; gap: 4px; }
-.group-name { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #202027; margin-bottom: 4px; }
-.stop { border-radius: 8px; padding: 12px 14px; }
-.stop-name { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
-.stop-hex  { font-size: 9px; font-family: monospace; margin-bottom: 2px; }
-.stop-use  { font-size: 8px; opacity: 0.75; }
+/* Nav */
+.nav { padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-logo { font-size: 15px; font-weight: 800; color: #f7f7f8; letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 24px; }
+.nav-link { font-size: 11px; font-weight: 500; color: rgba(247,247,248,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-cta { font-size: 11px; font-weight: 700; color: #f7f7f8; background: #ff4212; padding: 8px 16px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* Hero */
-.mock-hero { background: #202027; border-radius: 12px; padding: 36px 32px; }
-.mock-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ff4212; margin-bottom: 14px; }
-.mock-h1  { font-size: 32px; font-weight: 900; color: #f7f7f8; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 14px; }
-.mock-sub { font-size: 14px; color: rgba(247,247,248,0.5); line-height: 1.65; margin-bottom: 24px; max-width: 400px; }
-.mock-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-.btn-p { background: #ff4212; color: #f7f7f8; border: none; padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
-.btn-g { background: transparent; color: #f7f7f8; border: 1.5px solid rgba(247,247,248,0.3); padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
+.hero { padding: 80px 32px 72px; }
+.hero-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #ff4212; margin-bottom: 20px; }
+.hero-h1  { font-size: 52px; font-weight: 900; color: #f7f7f8; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 20px; }
+.hero-sub { font-size: 16px; color: rgba(247,247,248,0.45); line-height: 1.7; margin-bottom: 36px; max-width: 420px; }
+.hero-btns { display: flex; gap: 12px; }
+.btn-p { background: #ff4212; color: #f7f7f8; padding: 14px 28px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.btn-g { background: transparent; color: rgba(247,247,248,0.7); border: 1.5px solid rgba(247,247,248,0.2); padding: 14px 28px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* Stats */
-.mock-stats { background: #202027; border-radius: 10px; padding: 20px 24px; display: flex; }
-.stat { flex: 1; text-align: center; border-right: 1px solid rgba(247,247,248,0.12); padding: 0 8px; }
+.stats { padding: 32px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; }
+.stat { flex: 1; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); padding: 0 16px; }
 .stat:last-child { border-right: none; }
-.stat-num { font-size: 26px; font-weight: 900; color: #ff4212; line-height: 1; }
-.stat-lbl { font-size: 9px; color: rgba(247,247,248,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+.stat-num { font-size: 32px; font-weight: 900; color: #ff4212; line-height: 1; }
+.stat-lbl { font-size: 9px; color: rgba(247,247,248,0.35); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px; }
 
-/* Cards */
-.mock-cards { display: flex; gap: 10px; }
-.card { flex: 1; border-radius: 10px; padding: 20px 18px; }
-.card-icon { width: 36px; height: 36px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; }
-.card-title { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
-.card-desc  { font-size: 11px; line-height: 1.55; }
-.card-cta   { font-size: 11px; font-weight: 700; margin-top: 12px; }
+/* Section */
+.section { padding: 64px 32px; }
+.section-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #ff4212; margin-bottom: 12px; }
+.section-h2 { font-size: 32px; font-weight: 800; color: #f7f7f8; letter-spacing: -0.02em; margin-bottom: 8px; }
+.section-sub { font-size: 14px; color: rgba(247,247,248,0.4); line-height: 1.65; max-width: 400px; margin-bottom: 36px; }
 
-/* Light section */
-.mock-light { background: #f7f7f8; border-radius: 12px; padding: 28px 32px; border: 1.5px solid #e4e4e8; }
-.light-h { font-size: 24px; font-weight: 800; color: #202027; letter-spacing: -0.02em; margin-bottom: 8px; }
-.light-s { font-size: 13px; color: #6a6a75; line-height: 1.6; }
+/* Cards — elevated dark */
+.cards { display: flex; gap: 10px; }
+.card { flex: 1; background: #2c2c35; border-radius: 10px; padding: 22px 20px; border: 1px solid rgba(255,255,255,0.06); }
+.card-cat { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ff4212; margin-bottom: 10px; }
+.card-title { font-size: 16px; font-weight: 700; color: #f7f7f8; margin-bottom: 8px; }
+.card-desc  { font-size: 12px; color: rgba(247,247,248,0.4); line-height: 1.6; }
+.card-cta   { font-size: 11px; font-weight: 700; color: rgba(247,247,248,0.5); margin-top: 16px; letter-spacing: 0.04em; }
+.card-cta span { color: #ff4212; }
 
-/* CTA dark */
-.mock-cta { background: #c43010; border-radius: 12px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.cta-text h3 { font-size: 20px; font-weight: 800; color: #f7f7f8; letter-spacing: -0.01em; }
-.cta-text p  { font-size: 13px; color: rgba(247,247,248,0.65); margin-top: 4px; }
+/* Why us */
+.features { display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden; }
+.feature { flex: 1; padding: 24px 20px; border-right: 1px solid rgba(255,255,255,0.06); }
+.feature:last-child { border-right: none; }
+.feature-num { font-size: 10px; font-weight: 700; color: #ff4212; letter-spacing: 0.1em; margin-bottom: 10px; }
+.feature-title { font-size: 13px; font-weight: 700; color: #f7f7f8; margin-bottom: 6px; }
+.feature-desc  { font-size: 11px; color: rgba(247,247,248,0.35); line-height: 1.6; }
+
+/* CTA */
+.cta-section { margin: 0 32px 64px; background: #2c2c35; border-radius: 12px; padding: 40px 36px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.cta-h { font-size: 24px; font-weight: 800; color: #f7f7f8; letter-spacing: -0.02em; margin-bottom: 6px; }
+.cta-s { font-size: 13px; color: rgba(247,247,248,0.4); }
+
+/* Palette swatches at bottom */
+.palette-bar { padding: 24px 32px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 8px; align-items: center; }
+.pal-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,247,248,0.3); margin-right: 8px; }
+.swatch { display: flex; flex-direction: column; gap: 3px; align-items: center; }
+.swatch-color { width: 40px; height: 40px; border-radius: 6px; }
+.swatch-hex { font-size: 8px; font-family: monospace; color: rgba(247,247,248,0.35); }
+.swatch-name { font-size: 8px; color: rgba(247,247,248,0.25); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<div class="label">DC Drive — Site Color System v3.0</div>
-
-<!-- Palette — 3 colors, 3 stops each -->
-<div class="palette">
-
-  <div class="group">
-    <div class="group-name">Dark</div>
-    <div class="stop" style="background:#202027">
-      <div class="stop-name" style="color:#f7f7f8">Base ★</div>
-      <div class="stop-hex"  style="color:rgba(247,247,248,0.6)">#202027</div>
-      <div class="stop-use"  style="color:rgba(247,247,248,0.5)">Hero, dark sections, text</div>
-    </div>
-    <div class="stop" style="background:#e4e4e8;border:1px solid #c4c4ca">
-      <div class="stop-name" style="color:#202027">Mid</div>
-      <div class="stop-hex"  style="color:#4a4a54">#e4e4e8</div>
-      <div class="stop-use"  style="color:#6a6a75">Borders, dividers, hover</div>
-    </div>
-    <div class="stop" style="background:#f7f7f8;border:1px solid #e4e4e8">
-      <div class="stop-name" style="color:#202027">Light</div>
-      <div class="stop-hex"  style="color:#4a4a54">#f7f7f8</div>
-      <div class="stop-use"  style="color:#6a6a75">Page bg, light sections</div>
-    </div>
+<!-- Nav -->
+<div class="nav">
+  <div class="nav-logo">DCDRIVE</div>
+  <div class="nav-links">
+    <div class="nav-link">Κατηγορίες</div>
+    <div class="nav-link">Σχολή</div>
+    <div class="nav-link">Επικοινωνία</div>
   </div>
-
-  <div class="group">
-    <div class="group-name">Red</div>
-    <div class="stop" style="background:#c43010">
-      <div class="stop-name" style="color:#fff0eb">Dark</div>
-      <div class="stop-hex"  style="color:rgba(255,240,235,0.65)">#c43010</div>
-      <div class="stop-use"  style="color:rgba(255,240,235,0.55)">Hover, dark cards</div>
-    </div>
-    <div class="stop" style="background:#ff4212">
-      <div class="stop-name" style="color:#fff">Base ★</div>
-      <div class="stop-hex"  style="color:rgba(255,255,255,0.7)">#ff4212</div>
-      <div class="stop-use"  style="color:rgba(255,255,255,0.6)">CTAs, accent, icons</div>
-    </div>
-    <div class="stop" style="background:#fff0eb;border:1px solid #ffd4c5">
-      <div class="stop-name" style="color:#c43010">Light</div>
-      <div class="stop-hex"  style="color:#ff4212">#fff0eb</div>
-      <div class="stop-use"  style="color:#c43010">Card bg, subtle fills</div>
-    </div>
-  </div>
-
-  <div class="group">
-    <div class="group-name">Neutral</div>
-    <div class="stop" style="background:#202027">
-      <div class="stop-name" style="color:rgba(247,247,248,0.4)">→ Dark</div>
-      <div class="stop-hex"  style="color:rgba(247,247,248,0.3)">same as Dark base</div>
-      <div class="stop-use"  style="color:rgba(247,247,248,0.3)"> </div>
-    </div>
-    <div class="stop" style="background:#6a6a75">
-      <div class="stop-name" style="color:#f7f7f8">Mid</div>
-      <div class="stop-hex"  style="color:rgba(247,247,248,0.7)">#6a6a75</div>
-      <div class="stop-use"  style="color:rgba(247,247,248,0.55)">Muted text, placeholders</div>
-    </div>
-    <div class="stop" style="background:#f7f7f8;border:1px solid #e4e4e8">
-      <div class="stop-name" style="color:rgba(32,32,39,0.4)">→ Light</div>
-      <div class="stop-hex"  style="color:rgba(32,32,39,0.3)">same as Dark light</div>
-      <div class="stop-use"  style="color:rgba(32,32,39,0.3)"> </div>
-    </div>
-  </div>
-
+  <div class="nav-cta">Κλείσε ραντεβού</div>
 </div>
 
-<!-- In use -->
-<div class="label">In use</div>
-
-<div class="mock-hero">
-  <div class="mock-lbl">Σχολή Οδηγών · Αθήνα</div>
-  <div class="mock-h1">Μάθε να οδηγείς<br>με σιγουριά.</div>
-  <div class="mock-sub">Σύγχρονη εκπαίδευση με έμφαση στην ασφάλεια, την ψυχραιμία και την αυτοπεποίθηση.</div>
-  <div class="mock-btns">
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-lbl">Σχολή Οδηγών · Αθήνα</div>
+  <div class="hero-h1">Μάθε να οδηγείς<br>με σιγουριά.</div>
+  <div class="hero-sub">Σύγχρονη εκπαίδευση με έμφαση στην ασφάλεια, την ψυχραιμία και την αυτοπεποίθηση.</div>
+  <div class="hero-btns">
     <div class="btn-p">Κλείσε ραντεβού</div>
     <div class="btn-g">Δες τις κατηγορίες</div>
   </div>
 </div>
 
-<div class="mock-stats">
+<!-- Stats -->
+<div class="stats">
   <div class="stat"><div class="stat-num">1979</div><div class="stat-lbl">Από το έτος</div></div>
   <div class="stat"><div class="stat-num">85%</div><div class="stat-lbl">Επιτυχία</div></div>
   <div class="stat"><div class="stat-num">2k+</div><div class="stat-lbl">Απόφοιτοι</div></div>
   <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Κατηγορίες</div></div>
 </div>
 
-<div class="mock-cards">
-  <div class="card" style="background:#fff0eb;border:1.5px solid #ffd4c5">
-    <div class="card-icon" style="background:#ff4212;color:#fff">Β</div>
-    <div class="card-title" style="color:#202027">Αυτοκίνητο</div>
-    <div class="card-desc"  style="color:#6a6a75">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
-    <div class="card-cta"   style="color:#ff4212">Μάθε περισσότερα →</div>
-  </div>
-  <div class="card" style="background:#f7f7f8;border:1.5px solid #e4e4e8">
-    <div class="card-icon" style="background:#202027;color:#f7f7f8">Α</div>
-    <div class="card-title" style="color:#202027">Μοτοσυκλέτα</div>
-    <div class="card-desc"  style="color:#6a6a75">Για κάθε επίπεδο εμπειρίας.</div>
-    <div class="card-cta"   style="color:#ff4212">Μάθε περισσότερα →</div>
-  </div>
-  <div class="card" style="background:#202027">
-    <div class="card-icon" style="background:#ff4212;color:#fff">Γ</div>
-    <div class="card-title" style="color:#f7f7f8">Επαγγελματικά</div>
-    <div class="card-desc"  style="color:rgba(247,247,248,0.55)">Για επαγγελματική χρήση.</div>
-    <div class="card-cta"   style="color:#ff4212">Μάθε περισσότερα →</div>
+<!-- Categories -->
+<div class="section">
+  <div class="section-lbl">Κατηγορίες</div>
+  <div class="section-h2">Τι δίπλωμα θέλεις;</div>
+  <div class="section-sub">Διάλεξε την κατηγορία που σε ενδιαφέρει και δες τι χρειάζεται για να ξεκινήσεις.</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-cat">Κατηγορία Β</div>
+      <div class="card-title">Αυτοκίνητο</div>
+      <div class="card-desc">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
+      <div class="card-cta">Μάθε περισσότερα <span>→</span></div>
+    </div>
+    <div class="card">
+      <div class="card-cat">Κατηγορία Α</div>
+      <div class="card-title">Μοτοσυκλέτα</div>
+      <div class="card-desc">Για κάθε επίπεδο εμπειρίας στη μοτοσυκλέτα.</div>
+      <div class="card-cta">Μάθε περισσότερα <span>→</span></div>
+    </div>
+    <div class="card">
+      <div class="card-cat">Κατηγορία Γ/Δ</div>
+      <div class="card-title">Επαγγελματικά</div>
+      <div class="card-desc">Για επαγγελματική χρήση και αναβάθμιση.</div>
+      <div class="card-cta">Μάθε περισσότερα <span>→</span></div>
+    </div>
   </div>
 </div>
 
-<div class="mock-light">
-  <div class="light-h">Γιατί <span style="color:#ff4212">DC Drive;</span></div>
-  <div class="light-s">Εμπειρία από το 1979, υψηλό ποσοστό επιτυχίας και εκπαιδευτές που νοιάζονται.</div>
+<!-- Why us -->
+<div class="section" style="padding-top:0">
+  <div class="section-lbl">Γιατί εμείς</div>
+  <div class="section-h2" style="margin-bottom:24px">Γιατί DC Drive;</div>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-num">01</div>
+      <div class="feature-title">Εμπειρία</div>
+      <div class="feature-desc">Από το 1979 στους δρόμους της Αθήνας.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-num">02</div>
+      <div class="feature-title">Επιτυχία</div>
+      <div class="feature-desc">Υψηλό ποσοστό επιτυχίας από την πρώτη φορά.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-num">03</div>
+      <div class="feature-title">Ευελιξία</div>
+      <div class="feature-desc">Ωράρια που ταιριάζουν στη δική σου ζωή.</div>
+    </div>
+  </div>
 </div>
 
-<div class="mock-cta">
-  <div class="cta-text">
-    <h3>Έτοιμος να ξεκινήσεις;</h3>
-    <p>Επικοινώνησε μαζί μας σήμερα.</p>
+<!-- CTA -->
+<div class="cta-section">
+  <div>
+    <div class="cta-h">Έτοιμος να ξεκινήσεις;</div>
+    <div class="cta-s">Επικοινώνησε μαζί μας σήμερα.</div>
   </div>
-  <div class="btn-p" style="background:#202027;border:none">Κλείσε ραντεβού</div>
+  <div class="btn-p">Κλείσε ραντεβού</div>
+</div>
+
+<!-- Palette reference -->
+<div class="palette-bar">
+  <div class="pal-label">Palette</div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#202027;border:1px solid rgba(255,255,255,0.1)"></div>
+    <div class="swatch-hex">#202027</div>
+    <div class="swatch-name">Base</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#2c2c35;border:1px solid rgba(255,255,255,0.1)"></div>
+    <div class="swatch-hex">#2c2c35</div>
+    <div class="swatch-name">Elevated</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#ff4212"></div>
+    <div class="swatch-hex">#ff4212</div>
+    <div class="swatch-name">Red</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#c43010"></div>
+    <div class="swatch-hex">#c43010</div>
+    <div class="swatch-name">Red Dark</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#f7f7f8"></div>
+    <div class="swatch-hex">#f7f7f8</div>
+    <div class="swatch-name">Light</div>
+  </div>
 </div>
 
 </div>
