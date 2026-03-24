@@ -1,6 +1,5 @@
 /* ============================================================
-   DC DRIVE — Design System
-   Version: 1.0
+   DC DRIVE — Design System v2.0
    Author: Eternal Optimists
    
    TABLE OF CONTENTS
@@ -10,12 +9,14 @@
       1c. Spacing
       1d. Layout
       1e. Motion
-      1f. Shadows & Borders
-   2. Reset & Base
-   3. Typography Scale
+      1f. Elevation
+   2. Reset & Base (Dark theme default)
+   3. Typography Scale + Color Hierarchy
    4. Layout Utilities
-   5. Button System
-   6. Form Elements
+   5. Elevation Utilities
+   6. Button System
+   7. Form Elements
+   8. Hover & Transition Utilities
    ============================================================ */
 
 
@@ -27,84 +28,76 @@
 
   /* ----------------------------------------------------------
      1a. COLORS
-     Placeholder palette — update when brand assets arrive
      ---------------------------------------------------------- */
 
-  /* Brand — to be updated with client colors */
-  --color-primary:        #0047FF;   /* Main brand color — PLACEHOLDER */
-  --color-primary-dark:   #0035CC;   /* Hover state */
-  --color-primary-light:  #E8EFFE;   /* Tint / backgrounds */
-  --color-accent:         #FF3B00;   /* CTA, highlights — PLACEHOLDER */
-  --color-accent-dark:    #CC2F00;   /* Hover state */
+  /* Brand — Dark */
+  --color-dark:          #202027;   /* Base dark — hero, dark sections */
+  --color-dark-elevated: #2c2c35;   /* Elevated dark — cards, CTA blocks */
 
-  /* Neutrals */
-  --color-black:          #0A0A0A;
-  --color-dark:           #1A1A1A;
-  --color-dark-2:         #2C2C2C;
-  --color-gray-700:       #4A4A4A;
-  --color-gray-500:       #767676;
-  --color-gray-300:       #B8B8B8;
-  --color-gray-100:       #F0F0F0;
-  --color-white:          #FFFFFF;
+  /* Brand — Red */
+  --color-red:           #ff4212;   /* Base red — section headings, CTAs, buttons */
+  --color-red-dark:      #c43010;   /* Dark red — eyebrows, stats, subtle accents */
+  --color-red-light:     #fff0eb;   /* Light red — subtle bg fills (light mode only) */
+
+  /* Neutral */
+  --color-light:         #f7f7f8;   /* Off-white — text on dark, light bg */
+  --color-mid:           #e4e4e8;   /* Mid gray — borders, dividers */
+
+  /* Text hierarchy (on dark bg) */
+  --color-text-primary:  #f7f7f8;         /* Hero headlines, card titles */
+  --color-text-muted:    rgba(247,247,248,0.45); /* Body descriptions, meta */
+  --color-text-subtle:   rgba(247,247,248,0.25); /* Placeholders, disabled */
 
   /* Semantic */
-  --color-bg:             #FFFFFF;
-  --color-bg-dark:        #0A0A0A;
-  --color-bg-subtle:      #F7F7F7;
-  --color-text:           #1A1A1A;
-  --color-text-muted:     #767676;
-  --color-text-inverted:  #FFFFFF;
-  --color-border:         #E8E8E8;
-  --color-border-dark:    #2C2C2C;
-
-  /* Status */
-  --color-success:        #1A8A4A;
-  --color-error:          #D32F2F;
+  --color-bg:            var(--color-dark);
+  --color-surface:       var(--color-dark);
+  --color-surface-up:    var(--color-dark-elevated);
+  --color-border:        rgba(255,255,255,0.07);
+  --color-border-mid:    rgba(255,255,255,0.12);
 
 
   /* ----------------------------------------------------------
      1b. TYPOGRAPHY
      ---------------------------------------------------------- */
 
-  /* Font families — PLACEHOLDERS, update when brand assets arrive */
-  /* Single variable font — Inter covers all weights 100→900
-     Import: https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap */
-  --font-display:   'Inter', -apple-system, sans-serif;
-  --font-body:      'Inter', -apple-system, sans-serif;
-  --font-mono:      'JetBrains Mono', monospace;
+  /* Single variable font — Inter (100→900) */
+  /* Import: https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap */
+  --font-base:    'Inter', -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Font weights */
+  /* Weights */
   --weight-regular:   400;
   --weight-medium:    500;
   --weight-semibold:  600;
   --weight-bold:      700;
+  --weight-extrabold: 800;
   --weight-black:     900;
 
   /* Type scale — clamp(min, preferred, max) */
-  --text-xs:    clamp(0.688rem, 1vw, 0.75rem);     /* 11–12px  — labels, captions */
-  --text-sm:    clamp(0.813rem, 1.2vw, 0.875rem);  /* 13–14px  — small text */
-  --text-base:  clamp(0.938rem, 1.4vw, 1rem);      /* 15–16px  — body */
-  --text-md:    clamp(1rem, 1.6vw, 1.125rem);      /* 16–18px  — body large */
-  --text-lg:    clamp(1.125rem, 2vw, 1.25rem);     /* 18–20px  — lead text */
-  --text-xl:    clamp(1.25rem, 2.5vw, 1.5rem);     /* 20–24px  — subheadings */
-  --text-2xl:   clamp(1.5rem, 3vw, 2rem);          /* 24–32px  — h3 */
-  --text-3xl:   clamp(2rem, 4vw, 2.75rem);         /* 32–44px  — h2 */
-  --text-4xl:   clamp(2.5rem, 5vw, 3.5rem);        /* 40–56px  — h1 */
-  --text-5xl:   clamp(3rem, 7vw, 5rem);            /* 48–80px  — hero */
-  --text-6xl:   clamp(3.5rem, 10vw, 7rem);         /* 56–112px — display */
+  --text-xs:    clamp(0.688rem, 1vw,   0.75rem);    /* 11–12px — labels, captions */
+  --text-sm:    clamp(0.813rem, 1.2vw, 0.875rem);   /* 13–14px — small text */
+  --text-base:  clamp(0.875rem, 1.4vw, 1rem);       /* 14–16px — body */
+  --text-md:    clamp(1rem,     1.6vw, 1.125rem);   /* 16–18px — body large */
+  --text-lg:    clamp(1.125rem, 2vw,   1.25rem);    /* 18–20px — lead */
+  --text-xl:    clamp(1.25rem,  2.5vw, 1.5rem);     /* 20–24px — subheadings */
+  --text-2xl:   clamp(1.5rem,   3vw,   2rem);       /* 24–32px — h3 */
+  --text-3xl:   clamp(2rem,     4vw,   2.75rem);    /* 32–44px — h2 */
+  --text-4xl:   clamp(2.5rem,   5vw,   3.5rem);     /* 40–56px — h1 */
+  --text-5xl:   clamp(3rem,     7vw,   5rem);       /* 48–80px — hero */
+  --text-6xl:   clamp(3.5rem,   10vw,  7rem);       /* 56–112px — display */
 
   /* Line heights */
-  --leading-tight:    1.1;
-  --leading-snug:     1.25;
-  --leading-normal:   1.5;
-  --leading-relaxed:  1.7;
+  --leading-tight:   1.05;
+  --leading-snug:    1.2;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
 
   /* Letter spacing */
   --tracking-tight:   -0.03em;
   --tracking-normal:   0;
   --tracking-wide:     0.05em;
   --tracking-wider:    0.1em;
-  --tracking-widest:   0.2em;
+  --tracking-widest:   0.16em;
 
 
   /* ----------------------------------------------------------
@@ -129,54 +122,56 @@
      1d. LAYOUT
      ---------------------------------------------------------- */
 
-  --container-max:    1440px;
-  --container-wide:   1280px;
-  --container-narrow:  800px;
-  --container-xs:      560px;
+  --container-max:     1440px;
+  --container-wide:    1280px;
+  --container-narrow:   800px;
+  --container-xs:       560px;
 
-  --gutter-mobile:     24px;
-  --gutter-tablet:     48px;
-  --gutter-desktop:    80px;
+  --gutter-mobile:      24px;
+  --gutter-tablet:      48px;
+  --gutter-desktop:     80px;
 
-  --nav-height:        72px;
-  --nav-height-mobile: 64px;
+  --nav-height:         72px;
+  --nav-height-mobile:  64px;
+
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-full: 999px;
 
 
   /* ----------------------------------------------------------
      1e. MOTION
      ---------------------------------------------------------- */
 
-  --ease-default:   cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-in:        cubic-bezier(0.4, 0, 1, 1);
-  --ease-out:       cubic-bezier(0, 0, 0.2, 1);
-  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --duration-fast:    150ms;
-  --duration-normal:  250ms;
-  --duration-slow:    400ms;
-  --duration-slower:  600ms;
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+
+  /* Standard hover transition — apply to any interactive element */
+  --transition: all var(--duration-normal) var(--ease-out);
 
 
   /* ----------------------------------------------------------
-     1f. SHADOWS & BORDERS
+     1f. ELEVATION (dark layers)
+     Surfaces stack on top of each other — each level slightly
+     lighter, creating depth without breaking dark continuity.
      ---------------------------------------------------------- */
 
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:  16px;
-  --radius-xl:  24px;
-  --radius-full: 999px;
-
-  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md:  0 4px 16px rgba(0,0,0,0.10);
-  --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
-  --shadow-xl:  0 16px 64px rgba(0,0,0,0.16);
+  --surface-0:  #202027;   /* Page background */
+  --surface-1:  #2c2c35;   /* Cards, modals, elevated blocks */
+  --surface-2:  #363642;   /* Nested elements, tooltips */
 
 }
 
 
 /* ============================================================
-   2. RESET & BASE
+   2. RESET & BASE — Dark theme default
    ============================================================ */
 
 *, *::before, *::after {
@@ -191,12 +186,12 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-base);
   font-size: var(--text-base);
   font-weight: var(--weight-regular);
   line-height: var(--leading-normal);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  background-color: var(--surface-0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -213,9 +208,7 @@ a {
   text-decoration: none;
 }
 
-ul, ol {
-  list-style: none;
-}
+ul, ol { list-style: none; }
 
 button {
   cursor: pointer;
@@ -231,62 +224,87 @@ input, textarea, select {
 
 
 /* ============================================================
-   3. TYPOGRAPHY SCALE
+   3. TYPOGRAPHY SCALE + COLOR HIERARCHY
+   
+   Color rules:
+   - Hero headline (.display, h1)  → --color-text-primary (white)
+   - Section headings (h2, .h2)    → --color-red (base red)
+   - Eyebrow labels (.eyebrow)     → --color-red-dark
+   - Stats numbers (.stat-number)  → --color-red-dark
+   - Body text                     → --color-text-primary
+   - Descriptions, meta            → --color-text-muted
    ============================================================ */
 
 .display {
-  font-family: var(--font-display);
+  font-family: var(--font-base);
   font-size: var(--text-6xl);
   font-weight: var(--weight-black);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
 }
 
 h1, .h1 {
-  font-family: var(--font-display);
   font-size: var(--text-5xl);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-black);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
 }
 
 h2, .h2 {
-  font-family: var(--font-display);
   font-size: var(--text-4xl);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-extrabold);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
+  color: var(--color-red);           /* Base red — section headings */
 }
 
 h3, .h3 {
-  font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-bold);
   line-height: var(--leading-snug);
+  color: var(--color-text-primary);
 }
 
 h4, .h4 {
-  font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: var(--weight-semibold);
   line-height: var(--leading-snug);
+  color: var(--color-text-primary);
 }
 
 h5, .h5 {
   font-size: var(--text-xl);
   font-weight: var(--weight-medium);
-  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
 }
 
 h6, .h6 {
   font-size: var(--text-lg);
   font-weight: var(--weight-medium);
-  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+}
+
+/* Eyebrow label — dark red, uppercase, spaced */
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-red-dark);      /* Dark red */
+}
+
+/* Stat number — dark red, bold */
+.stat-number {
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-black);
+  line-height: 1;
+  color: var(--color-red-dark);      /* Dark red */
 }
 
 .lead {
   font-size: var(--text-lg);
-  font-weight: var(--weight-regular);
   line-height: var(--leading-relaxed);
   color: var(--color-text-muted);
 }
@@ -294,24 +312,7 @@ h6, .h6 {
 .body-lg {
   font-size: var(--text-md);
   line-height: var(--leading-relaxed);
-}
-
-.body {
-  font-size: var(--text-base);
-  line-height: var(--leading-normal);
-}
-
-.body-sm {
-  font-size: var(--text-sm);
-  line-height: var(--leading-normal);
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
+  color: var(--color-text-primary);
 }
 
 .caption {
@@ -348,40 +349,42 @@ h6, .h6 {
   }
 }
 
-.container--narrow {
-  max-width: var(--container-narrow);
-  margin-left: auto;
-  margin-right: auto;
-}
+.container--narrow { max-width: var(--container-narrow); margin: 0 auto; }
+.container--xs     { max-width: var(--container-xs);     margin: 0 auto; }
 
 .section {
-  padding-top: var(--space-10);
+  padding-top:    var(--space-10);
   padding-bottom: var(--space-10);
 }
 
 .section--sm {
-  padding-top: var(--space-7);
+  padding-top:    var(--space-7);
   padding-bottom: var(--space-7);
 }
 
 .section--lg {
-  padding-top: var(--space-11);
+  padding-top:    var(--space-11);
   padding-bottom: var(--space-11);
-}
-
-/* Dark section variant */
-.section--dark {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-inverted);
-}
-
-.section--subtle {
-  background-color: var(--color-bg-subtle);
 }
 
 
 /* ============================================================
-   5. BUTTON SYSTEM
+   5. ELEVATION UTILITIES
+   ============================================================ */
+
+.surface        { background: var(--surface-0); }   /* Page bg */
+.surface-up     { background: var(--surface-1); }   /* Cards, blocks */
+.surface-up-2   { background: var(--surface-2); }   /* Nested */
+
+/* Bordered surface — subtle outline for definition */
+.surface-up--bordered {
+  background: var(--surface-1);
+  border: 1px solid var(--color-border);
+}
+
+
+/* ============================================================
+   6. BUTTON SYSTEM
    ============================================================ */
 
 .btn {
@@ -390,79 +393,65 @@ h6, .h6 {
   justify-content: center;
   gap: var(--space-1);
   padding: 14px var(--space-4);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-wide);
+  font-family: var(--font-base);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   border-radius: var(--radius-sm);
-  transition: all var(--duration-normal) var(--ease-out);
+  border: 1.5px solid transparent;
+  transition: var(--transition);
   white-space: nowrap;
   cursor: pointer;
-  border: 2px solid transparent;
 }
 
-/* Primary */
+/* Primary — Red */
 .btn--primary {
-  background: var(--color-accent);
-  color: var(--color-white);
-  border-color: var(--color-accent);
+  background: var(--color-red);
+  color: var(--color-light);
+  border-color: var(--color-red);
 }
 .btn--primary:hover {
-  background: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
+  background: var(--color-red-dark);
+  border-color: var(--color-red-dark);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
 }
-
-/* Secondary */
-.btn--secondary {
-  background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-text);
-}
-.btn--secondary:hover {
-  background: var(--color-text);
-  color: var(--color-white);
+.btn--primary:active {
+  transform: translateY(0);
 }
 
 /* Ghost — for dark backgrounds */
 .btn--ghost {
   background: transparent;
-  color: var(--color-white);
-  border-color: rgba(255,255,255,0.4);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-mid);
 }
 .btn--ghost:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: var(--color-white);
+  border-color: rgba(247,247,248,0.35);
+  background: rgba(247,247,248,0.05);
 }
 
 /* Sizes */
-.btn--sm {
-  padding: 10px var(--space-3);
-  font-size: var(--text-xs);
-}
-
-.btn--lg {
-  padding: 18px var(--space-6);
-  font-size: var(--text-base);
-}
+.btn--sm { padding: 10px var(--space-3); font-size: 10px; }
+.btn--lg { padding: 16px var(--space-6); font-size: var(--text-sm); }
 
 
 /* ============================================================
-   6. FORM ELEMENTS
+   7. FORM ELEMENTS
    ============================================================ */
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 6px;
 }
 
 .form-label {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   font-weight: var(--weight-medium);
-  color: var(--color-text);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
 .form-input,
@@ -470,28 +459,59 @@ h6, .h6 {
 .form-select {
   width: 100%;
   padding: 12px var(--space-2);
-  font-family: var(--font-body);
+  font-family: var(--font-base);
   font-size: var(--text-base);
-  color: var(--color-text);
-  background: var(--color-white);
-  border: 1.5px solid var(--color-border);
+  color: var(--color-text-primary);
+  background: var(--surface-1);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  transition: border-color var(--duration-fast) var(--ease-out);
   outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
 }
 
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
-  border-color: var(--color-primary);
+  border-color: var(--color-red);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: var(--color-gray-300);
+  color: var(--color-text-subtle);
 }
 
 .form-textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+
+/* ============================================================
+   8. HOVER & TRANSITION UTILITIES
+   ============================================================ */
+
+/* Apply to any interactive card or element */
+.hoverable {
+  transition: var(--transition);
+}
+.hoverable:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-mid);
+}
+
+/* Underline link style */
+.link {
+  color: var(--color-red);
+  font-weight: var(--weight-semibold);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.link:hover {
+  color: var(--color-red-dark);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
 }
