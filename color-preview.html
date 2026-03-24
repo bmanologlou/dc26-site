@@ -9,18 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px; }
-.wrap { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-.section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #767676; margin-bottom: 2px; }
+body { font-family: 'Inter', sans-serif; background: #e4e4e8; padding: 32px 24px; }
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6a6a75; margin-bottom: 2px; }
 
-/* Color groups */
-.color-groups { display: flex; gap: 10px; }
-.color-group { flex: 1; display: flex; flex-direction: column; gap: 4px; }
-.group-name { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 4px; }
-.stop { border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; }
-.stop-name { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.stop-hex  { font-size: 9px; font-family: monospace; }
-.stop-use  { font-size: 8px; opacity: 0.7; margin-top: 1px; }
+/* Palette */
+.palette { display: flex; gap: 8px; }
+.group { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.group-name { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #202027; margin-bottom: 4px; }
+.stop { border-radius: 8px; padding: 12px 14px; }
+.stop-name { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+.stop-hex  { font-size: 9px; font-family: monospace; margin-bottom: 2px; }
+.stop-use  { font-size: 8px; opacity: 0.75; }
 
 /* Hero */
 .mock-hero { background: #202027; border-radius: 12px; padding: 36px 32px; }
@@ -32,11 +32,11 @@ body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px
 .btn-g { background: transparent; color: #f7f7f8; border: 1.5px solid rgba(247,247,248,0.3); padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
 
 /* Stats */
-.mock-stats { background: #6048b8; border-radius: 10px; padding: 20px 24px; display: flex; }
-.stat { flex: 1; text-align: center; border-right: 1px solid rgba(247,247,248,0.2); padding: 0 8px; }
+.mock-stats { background: #202027; border-radius: 10px; padding: 20px 24px; display: flex; }
+.stat { flex: 1; text-align: center; border-right: 1px solid rgba(247,247,248,0.12); padding: 0 8px; }
 .stat:last-child { border-right: none; }
-.stat-num { font-size: 26px; font-weight: 900; color: #f7f7f8; line-height: 1; }
-.stat-lbl { font-size: 9px; color: rgba(247,247,248,0.65); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+.stat-num { font-size: 26px; font-weight: 900; color: #ff4212; line-height: 1; }
+.stat-lbl { font-size: 9px; color: rgba(247,247,248,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
 
 /* Cards */
 .mock-cards { display: flex; gap: 10px; }
@@ -51,104 +51,81 @@ body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px
 .light-h { font-size: 24px; font-weight: 800; color: #202027; letter-spacing: -0.02em; margin-bottom: 8px; }
 .light-s { font-size: 13px; color: #6a6a75; line-height: 1.6; }
 
-/* Divider */
-.divider { height: 1px; background: rgba(0,0,0,0.1); }
+/* CTA dark */
+.mock-cta { background: #c43010; border-radius: 12px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.cta-text h3 { font-size: 20px; font-weight: 800; color: #f7f7f8; letter-spacing: -0.01em; }
+.cta-text p  { font-size: 13px; color: rgba(247,247,248,0.65); margin-top: 4px; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<div class="section-label">DC Drive — Color System v2.0 — 3 stops per color</div>
+<div class="label">DC Drive — Site Color System v3.0</div>
 
-<!-- Color groups -->
-<div class="color-groups">
+<!-- Palette — 3 colors, 3 stops each -->
+<div class="palette">
 
-  <!-- RED -->
-  <div class="color-group">
-    <div class="group-name">Red</div>
-    <div class="stop" style="background:#c43010">
-      <div class="stop-name" style="color:#fff0eb">Dark</div>
-      <div class="stop-hex" style="color:rgba(255,240,235,0.7)">#c43010</div>
-      <div class="stop-use" style="color:rgba(255,240,235,0.6)">Hover, dark cards, text</div>
-    </div>
-    <div class="stop" style="background:#ff4212">
-      <div class="stop-name" style="color:#fff">Base ★</div>
-      <div class="stop-hex" style="color:rgba(255,255,255,0.75)">#ff4212</div>
-      <div class="stop-use" style="color:rgba(255,255,255,0.6)">CTA, accent, icons</div>
-    </div>
-    <div class="stop" style="background:#fff0eb;border:1px solid #ffd4c5">
-      <div class="stop-name" style="color:#c43010">Light</div>
-      <div class="stop-hex" style="color:#c43010">#fff0eb</div>
-      <div class="stop-use" style="color:#c43010">Card bg, subtle fills</div>
-    </div>
-  </div>
-
-  <!-- PURPLE -->
-  <div class="color-group">
-    <div class="group-name">Purple</div>
-    <div class="stop" style="background:#362270">
-      <div class="stop-name" style="color:#f0ecfa">Dark</div>
-      <div class="stop-hex" style="color:rgba(240,236,250,0.7)">#362270</div>
-      <div class="stop-use" style="color:rgba(240,236,250,0.6)">Hover, dark cards, text</div>
-    </div>
-    <div class="stop" style="background:#6048b8">
-      <div class="stop-name" style="color:#fff">Base ★</div>
-      <div class="stop-hex" style="color:rgba(255,255,255,0.75)">#6048b8</div>
-      <div class="stop-use" style="color:rgba(255,255,255,0.6)">Stats bar, secondary accent</div>
-    </div>
-    <div class="stop" style="background:#f0ecfa;border:1px solid #d8cef0">
-      <div class="stop-name" style="color:#362270">Light</div>
-      <div class="stop-hex" style="color:#4c3494">#f0ecfa</div>
-      <div class="stop-use" style="color:#4c3494">Card bg, subtle fills</div>
-    </div>
-  </div>
-
-  <!-- YELLOW -->
-  <div class="color-group">
-    <div class="group-name">Yellow</div>
-    <div class="stop" style="background:#f5e88a">
-      <div class="stop-name" style="color:#fdf9e8">Dark</div>
-      <div class="stop-hex" style="color:rgba(253,249,232,0.7)">#f5e88a</div>
-      <div class="stop-use" style="color:rgba(253,249,232,0.6)">Hover, dark cards, text</div>
-    </div>
-    <div class="stop" style="background:#edcd44">
-      <div class="stop-name" style="color:#3d3000">Base ★</div>
-      <div class="stop-hex" style="color:#f5e88a">#edcd44</div>
-      <div class="stop-use" style="color:#f5e88a">Badges, highlights</div>
-    </div>
-    <div class="stop" style="background:#fdf9e8;border:1px solid #faf2cc">
-      <div class="stop-name" style="color:#f5e88a">Light</div>
-      <div class="stop-hex" style="color:#f5e88a">#fdf9e8</div>
-      <div class="stop-use" style="color:#f5e88a">Card bg, subtle fills</div>
-    </div>
-  </div>
-
-  <!-- DARK/NEUTRAL -->
-  <div class="color-group">
-    <div class="group-name">Neutral</div>
+  <div class="group">
+    <div class="group-name">Dark</div>
     <div class="stop" style="background:#202027">
       <div class="stop-name" style="color:#f7f7f8">Base ★</div>
-      <div class="stop-hex" style="color:rgba(247,247,248,0.7)">#202027</div>
-      <div class="stop-use" style="color:rgba(247,247,248,0.5)">Hero, dark sections</div>
+      <div class="stop-hex"  style="color:rgba(247,247,248,0.6)">#202027</div>
+      <div class="stop-use"  style="color:rgba(247,247,248,0.5)">Hero, dark sections, text</div>
     </div>
     <div class="stop" style="background:#e4e4e8;border:1px solid #c4c4ca">
       <div class="stop-name" style="color:#202027">Mid</div>
-      <div class="stop-hex" style="color:#4a4a54">#e4e4e8</div>
-      <div class="stop-use" style="color:#6a6a75">Borders, dividers, hover bg</div>
+      <div class="stop-hex"  style="color:#4a4a54">#e4e4e8</div>
+      <div class="stop-use"  style="color:#6a6a75">Borders, dividers, hover</div>
     </div>
     <div class="stop" style="background:#f7f7f8;border:1px solid #e4e4e8">
       <div class="stop-name" style="color:#202027">Light</div>
-      <div class="stop-hex" style="color:#4a4a54">#f7f7f8</div>
-      <div class="stop-use" style="color:#6a6a75">Page bg, light sections</div>
+      <div class="stop-hex"  style="color:#4a4a54">#f7f7f8</div>
+      <div class="stop-use"  style="color:#6a6a75">Page bg, light sections</div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-name">Red</div>
+    <div class="stop" style="background:#c43010">
+      <div class="stop-name" style="color:#fff0eb">Dark</div>
+      <div class="stop-hex"  style="color:rgba(255,240,235,0.65)">#c43010</div>
+      <div class="stop-use"  style="color:rgba(255,240,235,0.55)">Hover, dark cards</div>
+    </div>
+    <div class="stop" style="background:#ff4212">
+      <div class="stop-name" style="color:#fff">Base ★</div>
+      <div class="stop-hex"  style="color:rgba(255,255,255,0.7)">#ff4212</div>
+      <div class="stop-use"  style="color:rgba(255,255,255,0.6)">CTAs, accent, icons</div>
+    </div>
+    <div class="stop" style="background:#fff0eb;border:1px solid #ffd4c5">
+      <div class="stop-name" style="color:#c43010">Light</div>
+      <div class="stop-hex"  style="color:#ff4212">#fff0eb</div>
+      <div class="stop-use"  style="color:#c43010">Card bg, subtle fills</div>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-name">Neutral</div>
+    <div class="stop" style="background:#202027">
+      <div class="stop-name" style="color:rgba(247,247,248,0.4)">→ Dark</div>
+      <div class="stop-hex"  style="color:rgba(247,247,248,0.3)">same as Dark base</div>
+      <div class="stop-use"  style="color:rgba(247,247,248,0.3)"> </div>
+    </div>
+    <div class="stop" style="background:#6a6a75">
+      <div class="stop-name" style="color:#f7f7f8">Mid</div>
+      <div class="stop-hex"  style="color:rgba(247,247,248,0.7)">#6a6a75</div>
+      <div class="stop-use"  style="color:rgba(247,247,248,0.55)">Muted text, placeholders</div>
+    </div>
+    <div class="stop" style="background:#f7f7f8;border:1px solid #e4e4e8">
+      <div class="stop-name" style="color:rgba(32,32,39,0.4)">→ Light</div>
+      <div class="stop-hex"  style="color:rgba(32,32,39,0.3)">same as Dark light</div>
+      <div class="stop-use"  style="color:rgba(32,32,39,0.3)"> </div>
     </div>
   </div>
 
 </div>
 
-<div class="divider"></div>
-
 <!-- In use -->
-<div class="section-label">In use</div>
+<div class="label">In use</div>
 
 <div class="mock-hero">
   <div class="mock-lbl">Σχολή Οδηγών · Αθήνα</div>
@@ -167,58 +144,38 @@ body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px
   <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Κατηγορίες</div></div>
 </div>
 
-<!-- Light cards -->
-<div class="section-label">Cards — light</div>
 <div class="mock-cards">
   <div class="card" style="background:#fff0eb;border:1.5px solid #ffd4c5">
     <div class="card-icon" style="background:#ff4212;color:#fff">Β</div>
     <div class="card-title" style="color:#202027">Αυτοκίνητο</div>
-    <div class="card-desc" style="color:#6a6a75">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
-    <div class="card-cta" style="color:#ff4212">Μάθε περισσότερα →</div>
+    <div class="card-desc"  style="color:#6a6a75">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
+    <div class="card-cta"   style="color:#ff4212">Μάθε περισσότερα →</div>
   </div>
-  <div class="card" style="background:#f0ecfa;border:1.5px solid #d8cef0">
-    <div class="card-icon" style="background:#6048b8;color:#fff">Α</div>
+  <div class="card" style="background:#f7f7f8;border:1.5px solid #e4e4e8">
+    <div class="card-icon" style="background:#202027;color:#f7f7f8">Α</div>
     <div class="card-title" style="color:#202027">Μοτοσυκλέτα</div>
-    <div class="card-desc" style="color:#6a6a75">Για κάθε επίπεδο εμπειρίας.</div>
-    <div class="card-cta" style="color:#6048b8">Μάθε περισσότερα →</div>
+    <div class="card-desc"  style="color:#6a6a75">Για κάθε επίπεδο εμπειρίας.</div>
+    <div class="card-cta"   style="color:#ff4212">Μάθε περισσότερα →</div>
   </div>
-  <div class="card" style="background:#fdf9e8;border:1.5px solid #faf2cc">
-    <div class="card-icon" style="background:#edcd44;color:#202027">Γ</div>
-    <div class="card-title" style="color:#202027">Επαγγελματικά</div>
-    <div class="card-desc" style="color:#6a6a75">Για επαγγελματική χρήση.</div>
-    <div class="card-cta" style="color:#f5e88a">Μάθε περισσότερα →</div>
-  </div>
-</div>
-
-<!-- Dark cards -->
-<div class="section-label">Cards — dark</div>
-<div class="mock-cards">
-  <div class="card" style="background:#c43010">
-    <div class="card-icon" style="background:#ff4212;color:#fff">Β</div>
-    <div class="card-title" style="color:#fff0eb">Αυτοκίνητο</div>
-    <div class="card-desc" style="color:rgba(255,240,235,0.65)">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
-    <div class="card-cta" style="color:#fff0eb">Μάθε περισσότερα →</div>
-  </div>
-  <div class="card" style="background:#362270">
-    <div class="card-icon" style="background:#6048b8;color:#fff">Α</div>
-    <div class="card-title" style="color:#f0ecfa">Μοτοσυκλέτα</div>
-    <div class="card-desc" style="color:rgba(240,236,250,0.65)">Για κάθε επίπεδο εμπειρίας.</div>
-    <div class="card-cta" style="color:#d8cef0">Μάθε περισσότερα →</div>
-  </div>
-  <div class="card" style="background:#f5e88a">
-    <div class="card-icon" style="background:#edcd44;color:#202027">Γ</div>
-    <div class="card-title" style="color:#fdf9e8">Επαγγελματικά</div>
-    <div class="card-desc" style="color:rgba(253,249,232,0.65)">Για επαγγελματική χρήση.</div>
-    <div class="card-cta" style="color:#faf2cc">Μάθε περισσότερα →</div>
+  <div class="card" style="background:#202027">
+    <div class="card-icon" style="background:#ff4212;color:#fff">Γ</div>
+    <div class="card-title" style="color:#f7f7f8">Επαγγελματικά</div>
+    <div class="card-desc"  style="color:rgba(247,247,248,0.55)">Για επαγγελματική χρήση.</div>
+    <div class="card-cta"   style="color:#ff4212">Μάθε περισσότερα →</div>
   </div>
 </div>
 
-<div style="background:#fdf9e8;border:1.5px solid #f5e88a;border-radius:10px;padding:14px 20px;font-size:10px;color:#202027;font-weight:500;letter-spacing:0.02em">
-  ⚠ Yellow rule: <strong>πάντα dark text</strong> — #202027 (AAA 15:1) ή #362270 (AAA 12:1). Ποτέ λευκό (FAIL 1:1).
-</div>
 <div class="mock-light">
   <div class="light-h">Γιατί <span style="color:#ff4212">DC Drive;</span></div>
   <div class="light-s">Εμπειρία από το 1979, υψηλό ποσοστό επιτυχίας και εκπαιδευτές που νοιάζονται.</div>
+</div>
+
+<div class="mock-cta">
+  <div class="cta-text">
+    <h3>Έτοιμος να ξεκινήσεις;</h3>
+    <p>Επικοινώνησε μαζί μας σήμερα.</p>
+  </div>
+  <div class="btn-p" style="background:#202027;border:none">Κλείσε ραντεβού</div>
 </div>
 
 </div>
