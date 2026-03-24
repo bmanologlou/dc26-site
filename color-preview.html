@@ -8,148 +8,188 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: #f0f0f0; padding: 32px 24px; }
-  .wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px; }
+.wrap { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #767676; margin-bottom: 2px; }
 
-  /* Label */
-  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #767676; margin-bottom: 4px; }
+/* Swatches */
+.swatches { display: flex; gap: 8px; }
+.swatch { flex: 1; }
+.swatch-color { width: 100%; height: 56px; border-radius: 8px; margin-bottom: 6px; }
+.swatch-name { font-size: 10px; font-weight: 600; color: #1a1a1a; }
+.swatch-hex  { font-size: 9px; font-family: monospace; color: #767676; }
 
-  /* Swatches */
-  .swatches { display: flex; gap: 8px; }
-  .swatch { flex: 1; }
-  .swatch-color { width: 100%; height: 64px; border-radius: 8px; margin-bottom: 6px; }
-  .swatch-name { font-size: 11px; font-weight: 600; color: #1a1a1a; }
-  .swatch-hex { font-size: 10px; font-family: monospace; color: #767676; }
+/* Tints row */
+.tints { display: flex; gap: 6px; }
+.tint { flex: 1; }
+.tint-color { width: 100%; height: 40px; border-radius: 6px; margin-bottom: 4px; border: 1px solid rgba(0,0,0,0.06); }
+.tint-name { font-size: 9px; font-weight: 600; color: #1a1a1a; }
+.tint-hex  { font-size: 8px; font-family: monospace; color: #767676; }
 
-  /* Hero */
-  .mock-hero { background: #202027; border-radius: 12px; padding: 36px 32px; }
-  .mock-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ff4212; margin-bottom: 14px; }
-  .mock-h1 { font-size: 32px; font-weight: 900; color: #f7f7f8; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 14px; }
-  .mock-sub { font-size: 14px; color: rgba(247,247,248,0.55); line-height: 1.65; margin-bottom: 24px; max-width: 400px; }
-  .mock-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn-p { background: #ff4212; color: #f7f7f8; border: none; padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
-  .btn-g { background: transparent; color: #f7f7f8; border: 1.5px solid rgba(247,247,248,0.3); padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
+/* Hero */
+.mock-hero { background: #202027; border-radius: 12px; padding: 36px 32px; }
+.mock-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ff4212; margin-bottom: 14px; }
+.mock-h1  { font-size: 32px; font-weight: 900; color: #f7f7f8; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 14px; }
+.mock-sub { font-size: 14px; color: rgba(247,247,248,0.5); line-height: 1.65; margin-bottom: 24px; max-width: 400px; }
+.mock-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-p { background: #ff4212; color: #f7f7f8; border: none; padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
+.btn-g { background: transparent; color: #f7f7f8; border: 1.5px solid rgba(247,247,248,0.3); padding: 12px 24px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter',sans-serif; cursor: default; }
 
-  /* Stats */
-  .mock-stats { background: #ff4212; border-radius: 10px; padding: 20px 24px; display: flex; }
-  .stat { flex: 1; text-align: center; border-right: 1px solid rgba(247,247,248,0.25); padding: 0 8px; }
-  .stat:last-child { border-right: none; }
-  .stat-num { font-size: 26px; font-weight: 900; color: #f7f7f8; line-height: 1; }
-  .stat-lbl { font-size: 9px; color: rgba(247,247,248,0.75); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+/* Stats — purple */
+.mock-stats { background: #6048b8; border-radius: 10px; padding: 20px 24px; display: flex; }
+.stat { flex: 1; text-align: center; border-right: 1px solid rgba(247,247,248,0.2); padding: 0 8px; }
+.stat:last-child { border-right: none; }
+.stat-num { font-size: 26px; font-weight: 900; color: #f7f7f8; line-height: 1; }
+.stat-lbl { font-size: 9px; color: rgba(247,247,248,0.65); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
 
-  /* Cards */
-  .mock-cards { display: flex; gap: 10px; }
-  .card { flex: 1; border-radius: 10px; padding: 20px 18px; border: 1.5px solid #e4e4e4; background: #f7f7f8; }
-  .card-icon { width: 36px; height: 36px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; color: #f7f7f8; }
-  .card-title { font-size: 13px; font-weight: 700; color: #202027; margin-bottom: 5px; }
-  .card-desc { font-size: 11px; color: #767676; line-height: 1.55; }
-  .card-cta { font-size: 11px; font-weight: 700; color: #ff4212; margin-top: 12px; letter-spacing: 0.03em; }
+/* Cards on different bg tints */
+.mock-cards { display: flex; gap: 10px; }
+.card { flex: 1; border-radius: 10px; padding: 20px 18px; }
+.card-icon { width: 36px; height: 36px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; color: #f7f7f8; }
+.card-title { font-size: 13px; font-weight: 700; color: #202027; margin-bottom: 5px; }
+.card-desc  { font-size: 11px; color: #767676; line-height: 1.55; }
+.card-cta   { font-size: 11px; font-weight: 700; color: #ff4212; margin-top: 12px; }
 
-  /* Badges */
-  .badges-row { background: #fff; border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .badge { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
-  .badge-red    { background: #ff4212; color: #fff; }
-  .badge-purple { background: #6048b8; color: #fff; }
-  .badge-yellow { background: #edcd44; color: #202027; }
-  .badge-dark   { background: #202027; color: #f7f7f8; }
+/* Light section */
+.mock-light { background: #f7f7f8; border-radius: 12px; padding: 28px 32px; border: 1.5px solid #e4e4e4; }
+.light-h { font-size: 24px; font-weight: 800; color: #202027; letter-spacing: -0.02em; margin-bottom: 8px; }
+.light-s { font-size: 13px; color: #767676; line-height: 1.6; }
+.accent  { color: #ff4212; }
 
-  /* Light section */
-  .mock-light { background: #f7f7f8; border-radius: 12px; padding: 28px 32px; border: 1.5px solid #e4e4e4; }
-  .light-heading { font-size: 24px; font-weight: 800; color: #202027; letter-spacing: -0.02em; margin-bottom: 8px; }
-  .light-sub { font-size: 13px; color: #767676; line-height: 1.6; }
-  .light-accent { color: #ff4212; }
+/* Badges */
+.badges-row { background: #fff; border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="section-label">DC Drive — Color System Preview</div>
+<div class="section-label">DC Drive — Color System v1.0</div>
 
-  <!-- Swatches -->
-  <div class="swatches">
-    <div class="swatch">
-      <div class="swatch-color" style="background:#202027;border:1px solid rgba(0,0,0,0.06)"></div>
-      <div class="swatch-name">Dark</div>
-      <div class="swatch-hex">#202027</div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#ff4212"></div>
-      <div class="swatch-name">Accent Red</div>
-      <div class="swatch-hex">#ff4212</div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#f7f7f8;border:1px solid rgba(0,0,0,0.06)"></div>
-      <div class="swatch-name">Light</div>
-      <div class="swatch-hex">#f7f7f8</div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#6048b8"></div>
-      <div class="swatch-name">Purple</div>
-      <div class="swatch-hex">#6048b8</div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#edcd44"></div>
-      <div class="swatch-name">Yellow</div>
-      <div class="swatch-hex">#edcd44</div>
-    </div>
+<!-- Primary swatches -->
+<div class="swatches">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#202027;border:1px solid rgba(0,0,0,0.06)"></div>
+    <div class="swatch-name">Dark</div><div class="swatch-hex">#202027</div>
   </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#ff4212"></div>
+    <div class="swatch-name">Red Accent</div><div class="swatch-hex">#ff4212</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#f7f7f8;border:1px solid rgba(0,0,0,0.06)"></div>
+    <div class="swatch-name">Light</div><div class="swatch-hex">#f7f7f8</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#6048b8"></div>
+    <div class="swatch-name">Purple</div><div class="swatch-hex">#6048b8</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#edcd44"></div>
+    <div class="swatch-name">Yellow</div><div class="swatch-hex">#edcd44</div>
+  </div>
+</div>
 
-  <!-- Hero -->
-  <div class="mock-hero">
-    <div class="mock-label">Σχολή Οδηγών · Αθήνα</div>
-    <div class="mock-h1">Μάθε να οδηγείς<br>με σιγουριά.</div>
-    <div class="mock-sub">Σύγχρονη εκπαίδευση με έμφαση στην ασφάλεια, την ψυχραιμία και την αυτοπεποίθηση.</div>
-    <div class="mock-btns">
-      <div class="btn-p">Κλείσε ραντεβού</div>
-      <div class="btn-g">Δες τις κατηγορίες</div>
-    </div>
-  </div>
+<!-- Tints Red -->
+<div class="section-label" style="margin-top:4px">Red tints — backgrounds, cards</div>
+<div class="tints">
+  <div class="tint"><div class="tint-color" style="background:#ff4212"></div><div class="tint-name">Red 100</div><div class="tint-hex">#ff4212</div></div>
+  <div class="tint"><div class="tint-color" style="background:#ff6b45"></div><div class="tint-name">Red 80</div><div class="tint-hex">#ff6b45</div></div>
+  <div class="tint"><div class="tint-color" style="background:#ffa080"></div><div class="tint-name">Red 50</div><div class="tint-hex">#ffa080</div></div>
+  <div class="tint"><div class="tint-color" style="background:#ffd4c5"></div><div class="tint-name">Red 25</div><div class="tint-hex">#ffd4c5</div></div>
+  <div class="tint"><div class="tint-color" style="background:#fff0eb"></div><div class="tint-name">Red 10</div><div class="tint-hex">#fff0eb</div></div>
+</div>
 
-  <!-- Stats -->
-  <div class="mock-stats">
-    <div class="stat"><div class="stat-num">1979</div><div class="stat-lbl">Από το έτος</div></div>
-    <div class="stat"><div class="stat-num">85%</div><div class="stat-lbl">Επιτυχία</div></div>
-    <div class="stat"><div class="stat-num">2k+</div><div class="stat-lbl">Απόφοιτοι</div></div>
-    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Κατηγορίες</div></div>
-  </div>
+<!-- Tints Purple -->
+<div class="section-label" style="margin-top:4px">Purple tints</div>
+<div class="tints">
+  <div class="tint"><div class="tint-color" style="background:#6048b8"></div><div class="tint-name">Purple 100</div><div class="tint-hex">#6048b8</div></div>
+  <div class="tint"><div class="tint-color" style="background:#836bd0"></div><div class="tint-name">Purple 80</div><div class="tint-hex">#836bd0</div></div>
+  <div class="tint"><div class="tint-color" style="background:#b09de0"></div><div class="tint-name">Purple 50</div><div class="tint-hex">#b09de0</div></div>
+  <div class="tint"><div class="tint-color" style="background:#d8cef0"></div><div class="tint-name">Purple 25</div><div class="tint-hex">#d8cef0</div></div>
+  <div class="tint"><div class="tint-color" style="background:#f0ecfa"></div><div class="tint-name">Purple 10</div><div class="tint-hex">#f0ecfa</div></div>
+</div>
 
-  <!-- Cards -->
-  <div class="mock-cards">
-    <div class="card">
-      <div class="card-icon" style="background:#ff4212">Β</div>
-      <div class="card-title">Αυτοκίνητο</div>
-      <div class="card-desc">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
-      <div class="card-cta">Μάθε περισσότερα →</div>
-    </div>
-    <div class="card">
-      <div class="card-icon" style="background:#6048b8">Α</div>
-      <div class="card-title">Μοτοσυκλέτα</div>
-      <div class="card-desc">Για κάθε επίπεδο εμπειρίας στη μοτοσυκλέτα.</div>
-      <div class="card-cta">Μάθε περισσότερα →</div>
-    </div>
-    <div class="card">
-      <div class="card-icon" style="background:#202027">Γ</div>
-      <div class="card-title">Επαγγελματικά</div>
-      <div class="card-desc">Για επαγγελματική χρήση και αναβάθμιση.</div>
-      <div class="card-cta">Μάθε περισσότερα →</div>
-    </div>
-  </div>
+<!-- Tints Yellow -->
+<div class="section-label" style="margin-top:4px">Yellow tints</div>
+<div class="tints">
+  <div class="tint"><div class="tint-color" style="background:#edcd44"></div><div class="tint-name">Yellow 100</div><div class="tint-hex">#edcd44</div></div>
+  <div class="tint"><div class="tint-color" style="background:#f2d96d"></div><div class="tint-name">Yellow 80</div><div class="tint-hex">#f2d96d</div></div>
+  <div class="tint"><div class="tint-color" style="background:#f6e49b"></div><div class="tint-name">Yellow 50</div><div class="tint-hex">#f6e49b</div></div>
+  <div class="tint"><div class="tint-color" style="background:#faf2cc"></div><div class="tint-name">Yellow 25</div><div class="tint-hex">#faf2cc</div></div>
+  <div class="tint"><div class="tint-color" style="background:#fdf9e8"></div><div class="tint-name">Yellow 10</div><div class="tint-hex">#fdf9e8</div></div>
+</div>
 
-  <!-- Light section -->
-  <div class="mock-light">
-    <div class="light-heading">Γιατί <span class="light-accent">DC Drive;</span></div>
-    <div class="light-sub">Εμπειρία από το 1979, υψηλό ποσοστό επιτυχίας και εκπαιδευτές που νοιάζονται πραγματικά.</div>
-  </div>
+<!-- Tints Dark -->
+<div class="section-label" style="margin-top:4px">Dark tints</div>
+<div class="tints">
+  <div class="tint"><div class="tint-color" style="background:#202027"></div><div class="tint-name">Dark 100</div><div class="tint-hex">#202027</div></div>
+  <div class="tint"><div class="tint-color" style="background:#4a4a54"></div><div class="tint-name">Dark 70</div><div class="tint-hex">#4a4a54</div></div>
+  <div class="tint"><div class="tint-color" style="background:#8a8a95"></div><div class="tint-name">Dark 45</div><div class="tint-hex">#8a8a95</div></div>
+  <div class="tint"><div class="tint-color" style="background:#c4c4ca"></div><div class="tint-name">Dark 25</div><div class="tint-hex">#c4c4ca</div></div>
+  <div class="tint"><div class="tint-color" style="background:#f7f7f8"></div><div class="tint-name">Light</div><div class="tint-hex">#f7f7f8</div></div>
+</div>
 
-  <!-- Badges -->
-  <div class="badges-row">
-    <span style="font-size:10px;color:#767676;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-right:4px">Secondary colors:</span>
-    <span class="badge badge-red">Accent</span>
-    <span class="badge badge-purple">Επαγγελματικά</span>
-    <span class="badge badge-yellow">⭐ Δημοφιλές</span>
-    <span class="badge badge-dark">Νέο</span>
+<!-- Hero -->
+<div class="section-label" style="margin-top:4px">Hero section</div>
+<div class="mock-hero">
+  <div class="mock-lbl">Σχολή Οδηγών · Αθήνα</div>
+  <div class="mock-h1">Μάθε να οδηγείς<br>με σιγουριά.</div>
+  <div class="mock-sub">Σύγχρονη εκπαίδευση με έμφαση στην ασφάλεια, την ψυχραιμία και την αυτοπεποίθηση.</div>
+  <div class="mock-btns">
+    <div class="btn-p">Κλείσε ραντεβού</div>
+    <div class="btn-g">Δες τις κατηγορίες</div>
   </div>
+</div>
+
+<!-- Stats purple -->
+<div class="mock-stats">
+  <div class="stat"><div class="stat-num">1979</div><div class="stat-lbl">Από το έτος</div></div>
+  <div class="stat"><div class="stat-num">85%</div><div class="stat-lbl">Επιτυχία</div></div>
+  <div class="stat"><div class="stat-num">2k+</div><div class="stat-lbl">Απόφοιτοι</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Κατηγορίες</div></div>
+</div>
+
+<!-- Cards με διαφορετικά tint backgrounds -->
+<div class="section-label">Cards — tint backgrounds</div>
+<div class="mock-cards">
+  <div class="card" style="background:#fff0eb;border:1.5px solid #ffd4c5">
+    <div class="card-icon" style="background:#ff4212">Β</div>
+    <div class="card-title">Αυτοκίνητο</div>
+    <div class="card-desc">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
+    <div class="card-cta">Μάθε περισσότερα →</div>
+  </div>
+  <div class="card" style="background:#f0ecfa;border:1.5px solid #d8cef0">
+    <div class="card-icon" style="background:#6048b8">Α</div>
+    <div class="card-title">Μοτοσυκλέτα</div>
+    <div class="card-desc">Για κάθε επίπεδο εμπειρίας στη μοτοσυκλέτα.</div>
+    <div class="card-cta" style="color:#6048b8">Μάθε περισσότερα →</div>
+  </div>
+  <div class="card" style="background:#fdf9e8;border:1.5px solid #faf2cc">
+    <div class="card-icon" style="background:#edcd44;color:#202027">Γ</div>
+    <div class="card-title">Επαγγελματικά</div>
+    <div class="card-desc">Για επαγγελματική χρήση και αναβάθμιση.</div>
+    <div class="card-cta" style="color:#a08800">Μάθε περισσότερα →</div>
+  </div>
+</div>
+
+<!-- Light section -->
+<div class="mock-light">
+  <div class="light-h">Γιατί <span class="accent">DC Drive;</span></div>
+  <div class="light-s">Εμπειρία από το 1979, υψηλό ποσοστό επιτυχίας και εκπαιδευτές που νοιάζονται.</div>
+</div>
+
+<!-- Badges -->
+<div class="badges-row">
+  <span style="font-size:10px;color:#767676;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-right:4px">Badges:</span>
+  <span class="badge" style="background:#ff4212;color:#fff">CTA</span>
+  <span class="badge" style="background:#6048b8;color:#fff">Επαγγελματικά</span>
+  <span class="badge" style="background:#edcd44;color:#202027">Δημοφιλές</span>
+  <span class="badge" style="background:#fff0eb;color:#ff4212;border:1px solid #ffd4c5">Β Κατηγορία</span>
+  <span class="badge" style="background:#f0ecfa;color:#6048b8;border:1px solid #d8cef0">Α Κατηγορία</span>
+  <span class="badge" style="background:#202027;color:#f7f7f8">Dark</span>
+</div>
 
 </div>
 </body>
