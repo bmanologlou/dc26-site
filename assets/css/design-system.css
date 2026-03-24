@@ -515,3 +515,49 @@ h6, .h6 {
   background: var(--color-border);
   border: none;
 }
+
+
+/* ============================================================
+   9. ICONS — Lucide
+   CDN: https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js
+   Usage: <i data-lucide="icon-name"></i> + lucide.createIcons()
+   Default size: 20px (UI), 24px (features), 18px (contact/meta)
+   Default color: inherits currentColor — set via CSS color property
+   ============================================================ */
+
+i[data-lucide] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Size variants */
+.icon-sm  i[data-lucide], i[data-lucide].icon-sm  { width: 16px; height: 16px; }
+.icon-md  i[data-lucide], i[data-lucide].icon-md  { width: 20px; height: 20px; }
+.icon-lg  i[data-lucide], i[data-lucide].icon-lg  { width: 24px; height: 24px; }
+.icon-xl  i[data-lucide], i[data-lucide].icon-xl  { width: 32px; height: 32px; }
+
+/* Color variants */
+.icon-accent  { color: var(--color-red); }
+.icon-muted   { color: var(--color-text-muted); }
+.icon-dark-red { color: var(--color-red-dark); }
+
+/* Icon container — for feature cards */
+.icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 66, 18, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-red);
+  flex-shrink: 0;
+}
+
+.icon-wrap--sm {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+}
