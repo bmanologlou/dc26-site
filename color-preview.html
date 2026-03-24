@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DC Drive — Color Preview</title>
+<title>DC Drive — Color System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px; }
-.wrap { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-.section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #767676; margin-bottom: 2px; margin-top: 4px; }
+.wrap { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #767676; margin-bottom: 2px; }
 
-/* Swatches */
-.swatches { display: flex; gap: 6px; }
-.swatch { flex: 1; }
-.swatch-color { width: 100%; height: 56px; border-radius: 8px; margin-bottom: 6px; }
-.swatch-name { font-size: 10px; font-weight: 600; color: #1a1a1a; }
-.swatch-hex  { font-size: 9px; font-family: monospace; color: #767676; }
-
-/* Full scale row */
-.scale { display: flex; gap: 4px; border-radius: 10px; overflow: hidden; }
-.scale-stop { flex: 1; padding: 10px 6px 8px; display: flex; flex-direction: column; gap: 3px; }
-.scale-stop-name { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-.scale-stop-hex  { font-size: 8px; font-family: monospace; }
+/* Color groups */
+.color-groups { display: flex; gap: 10px; }
+.color-group { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.group-name { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 4px; }
+.stop { border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; }
+.stop-name { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.stop-hex  { font-size: 9px; font-family: monospace; }
+.stop-use  { font-size: 8px; opacity: 0.7; margin-top: 1px; }
 
 /* Hero */
 .mock-hero { background: #202027; border-radius: 12px; padding: 36px 32px; }
@@ -45,200 +41,115 @@ body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px
 /* Cards */
 .mock-cards { display: flex; gap: 10px; }
 .card { flex: 1; border-radius: 10px; padding: 20px 18px; }
-.card-icon { width: 36px; height: 36px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; color: #f7f7f8; }
+.card-icon { width: 36px; height: 36px; border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; }
 .card-title { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
 .card-desc  { font-size: 11px; line-height: 1.55; }
 .card-cta   { font-size: 11px; font-weight: 700; margin-top: 12px; }
 
 /* Light section */
-.mock-light { background: #f7f7f8; border-radius: 12px; padding: 28px 32px; border: 1.5px solid #e4e4e4; }
+.mock-light { background: #f7f7f8; border-radius: 12px; padding: 28px 32px; border: 1.5px solid #c4c4ca; }
 .light-h { font-size: 24px; font-weight: 800; color: #202027; letter-spacing: -0.02em; margin-bottom: 8px; }
-.light-s { font-size: 13px; color: #767676; line-height: 1.6; }
+.light-s { font-size: 13px; color: #6a6a75; line-height: 1.6; }
 
-/* Badges */
-.badges-row { background: #fff; border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.badge { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
+/* Divider */
+.divider { height: 1px; background: rgba(0,0,0,0.1); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<div class="section-label">DC Drive — Color System v1.1</div>
+<div class="section-label">DC Drive — Color System v2.0 — 3 stops per color</div>
 
-<!-- Primary swatches -->
-<div class="swatches">
-  <div class="swatch">
-    <div class="swatch-color" style="background:#202027;border:1px solid rgba(0,0,0,0.06)"></div>
-    <div class="swatch-name">Dark</div><div class="swatch-hex">#202027</div>
+<!-- Color groups -->
+<div class="color-groups">
+
+  <!-- RED -->
+  <div class="color-group">
+    <div class="group-name">Red</div>
+    <div class="stop" style="background:#8a1f00">
+      <div class="stop-name" style="color:#fff0eb">Dark</div>
+      <div class="stop-hex" style="color:rgba(255,240,235,0.7)">#8a1f00</div>
+      <div class="stop-use" style="color:rgba(255,240,235,0.6)">Hover, dark cards, text</div>
+    </div>
+    <div class="stop" style="background:#ff4212">
+      <div class="stop-name" style="color:#fff">Base ★</div>
+      <div class="stop-hex" style="color:rgba(255,255,255,0.75)">#ff4212</div>
+      <div class="stop-use" style="color:rgba(255,255,255,0.6)">CTA, accent, icons</div>
+    </div>
+    <div class="stop" style="background:#fff0eb;border:1px solid #ffd4c5">
+      <div class="stop-name" style="color:#8a1f00">Light</div>
+      <div class="stop-hex" style="color:#c43010">#fff0eb</div>
+      <div class="stop-use" style="color:#c43010">Card bg, subtle fills</div>
+    </div>
   </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#ff4212"></div>
-    <div class="swatch-name">Red Accent</div><div class="swatch-hex">#ff4212</div>
+
+  <!-- PURPLE -->
+  <div class="color-group">
+    <div class="group-name">Purple</div>
+    <div class="stop" style="background:#362270">
+      <div class="stop-name" style="color:#f0ecfa">Dark</div>
+      <div class="stop-hex" style="color:rgba(240,236,250,0.7)">#362270</div>
+      <div class="stop-use" style="color:rgba(240,236,250,0.6)">Hover, dark cards, text</div>
+    </div>
+    <div class="stop" style="background:#6048b8">
+      <div class="stop-name" style="color:#fff">Base ★</div>
+      <div class="stop-hex" style="color:rgba(255,255,255,0.75)">#6048b8</div>
+      <div class="stop-use" style="color:rgba(255,255,255,0.6)">Stats bar, secondary accent</div>
+    </div>
+    <div class="stop" style="background:#f0ecfa;border:1px solid #d8cef0">
+      <div class="stop-name" style="color:#362270">Light</div>
+      <div class="stop-hex" style="color:#4c3494">#f0ecfa</div>
+      <div class="stop-use" style="color:#4c3494">Card bg, subtle fills</div>
+    </div>
   </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#f7f7f8;border:1px solid rgba(0,0,0,0.06)"></div>
-    <div class="swatch-name">Light</div><div class="swatch-hex">#f7f7f8</div>
+
+  <!-- YELLOW -->
+  <div class="color-group">
+    <div class="group-name">Yellow</div>
+    <div class="stop" style="background:#6b5400">
+      <div class="stop-name" style="color:#fdf9e8">Dark</div>
+      <div class="stop-hex" style="color:rgba(253,249,232,0.7)">#6b5400</div>
+      <div class="stop-use" style="color:rgba(253,249,232,0.6)">Hover, dark cards, text</div>
+    </div>
+    <div class="stop" style="background:#edcd44">
+      <div class="stop-name" style="color:#3d3000">Base ★</div>
+      <div class="stop-hex" style="color:#6b5400">#edcd44</div>
+      <div class="stop-use" style="color:#6b5400">Badges, highlights</div>
+    </div>
+    <div class="stop" style="background:#fdf9e8;border:1px solid #faf2cc">
+      <div class="stop-name" style="color:#6b5400">Light</div>
+      <div class="stop-hex" style="color:#a08800">#fdf9e8</div>
+      <div class="stop-use" style="color:#a08800">Card bg, subtle fills</div>
+    </div>
   </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#6048b8"></div>
-    <div class="swatch-name">Purple</div><div class="swatch-hex">#6048b8</div>
+
+  <!-- DARK/NEUTRAL -->
+  <div class="color-group">
+    <div class="group-name">Neutral</div>
+    <div class="stop" style="background:#0d0d11">
+      <div class="stop-name" style="color:#f7f7f8">Dark</div>
+      <div class="stop-hex" style="color:rgba(247,247,248,0.7)">#0d0d11</div>
+      <div class="stop-use" style="color:rgba(247,247,248,0.5)">Deep bg, overlays</div>
+    </div>
+    <div class="stop" style="background:#202027">
+      <div class="stop-name" style="color:#f7f7f8">Base ★</div>
+      <div class="stop-hex" style="color:rgba(247,247,248,0.7)">#202027</div>
+      <div class="stop-use" style="color:rgba(247,247,248,0.5)">Hero, dark sections</div>
+    </div>
+    <div class="stop" style="background:#f7f7f8;border:1px solid #c4c4ca">
+      <div class="stop-name" style="color:#202027">Light</div>
+      <div class="stop-hex" style="color:#4a4a54">#f7f7f8</div>
+      <div class="stop-use" style="color:#6a6a75">Page bg, light sections</div>
+    </div>
   </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#edcd44"></div>
-    <div class="swatch-name">Yellow</div><div class="swatch-hex">#edcd44</div>
-  </div>
+
 </div>
 
-<!-- RED full scale -->
-<div class="section-label">Red — full scale</div>
-<div class="scale">
-  <div class="scale-stop" style="background:#5c1500">
-    <div class="scale-stop-name" style="color:#ffd4c5">900</div>
-    <div class="scale-stop-hex" style="color:#ffa080">#5c1500</div>
-  </div>
-  <div class="scale-stop" style="background:#8a1f00">
-    <div class="scale-stop-name" style="color:#ffd4c5">800</div>
-    <div class="scale-stop-hex" style="color:#ffa080">#8a1f00</div>
-  </div>
-  <div class="scale-stop" style="background:#c43010">
-    <div class="scale-stop-name" style="color:#fff0eb">700</div>
-    <div class="scale-stop-hex" style="color:#ffd4c5">#c43010</div>
-  </div>
-  <div class="scale-stop" style="background:#ff4212">
-    <div class="scale-stop-name" style="color:#fff">600 ★</div>
-    <div class="scale-stop-hex" style="color:rgba(255,255,255,0.7)">#ff4212</div>
-  </div>
-  <div class="scale-stop" style="background:#ff6b45">
-    <div class="scale-stop-name" style="color:#fff">500</div>
-    <div class="scale-stop-hex" style="color:rgba(255,255,255,0.7)">#ff6b45</div>
-  </div>
-  <div class="scale-stop" style="background:#ffa080">
-    <div class="scale-stop-name" style="color:#5c1500">400</div>
-    <div class="scale-stop-hex" style="color:#8a1f00">#ffa080</div>
-  </div>
-  <div class="scale-stop" style="background:#ffd4c5">
-    <div class="scale-stop-name" style="color:#8a1f00">300</div>
-    <div class="scale-stop-hex" style="color:#c43010">#ffd4c5</div>
-  </div>
-  <div class="scale-stop" style="background:#fff0eb">
-    <div class="scale-stop-name" style="color:#c43010">100</div>
-    <div class="scale-stop-hex" style="color:#ff4212">#fff0eb</div>
-  </div>
-</div>
+<div class="divider"></div>
 
-<!-- PURPLE full scale -->
-<div class="section-label">Purple — full scale</div>
-<div class="scale">
-  <div class="scale-stop" style="background:#1e1240">
-    <div class="scale-stop-name" style="color:#d8cef0">900</div>
-    <div class="scale-stop-hex" style="color:#b09de0">#1e1240</div>
-  </div>
-  <div class="scale-stop" style="background:#362270">
-    <div class="scale-stop-name" style="color:#d8cef0">800</div>
-    <div class="scale-stop-hex" style="color:#b09de0">#362270</div>
-  </div>
-  <div class="scale-stop" style="background:#4c3494">
-    <div class="scale-stop-name" style="color:#f0ecfa">700</div>
-    <div class="scale-stop-hex" style="color:#d8cef0">#4c3494</div>
-  </div>
-  <div class="scale-stop" style="background:#6048b8">
-    <div class="scale-stop-name" style="color:#fff">600 ★</div>
-    <div class="scale-stop-hex" style="color:rgba(255,255,255,0.7)">#6048b8</div>
-  </div>
-  <div class="scale-stop" style="background:#836bd0">
-    <div class="scale-stop-name" style="color:#fff">500</div>
-    <div class="scale-stop-hex" style="color:rgba(255,255,255,0.7)">#836bd0</div>
-  </div>
-  <div class="scale-stop" style="background:#b09de0">
-    <div class="scale-stop-name" style="color:#1e1240">400</div>
-    <div class="scale-stop-hex" style="color:#362270">#b09de0</div>
-  </div>
-  <div class="scale-stop" style="background:#d8cef0">
-    <div class="scale-stop-name" style="color:#362270">300</div>
-    <div class="scale-stop-hex" style="color:#4c3494">#d8cef0</div>
-  </div>
-  <div class="scale-stop" style="background:#f0ecfa">
-    <div class="scale-stop-name" style="color:#4c3494">100</div>
-    <div class="scale-stop-hex" style="color:#6048b8">#f0ecfa</div>
-  </div>
-</div>
+<!-- In use -->
+<div class="section-label">In use</div>
 
-<!-- YELLOW full scale -->
-<div class="section-label">Yellow — full scale</div>
-<div class="scale">
-  <div class="scale-stop" style="background:#3d3000">
-    <div class="scale-stop-name" style="color:#faf2cc">900</div>
-    <div class="scale-stop-hex" style="color:#f6e49b">#3d3000</div>
-  </div>
-  <div class="scale-stop" style="background:#6b5400">
-    <div class="scale-stop-name" style="color:#faf2cc">800</div>
-    <div class="scale-stop-hex" style="color:#f6e49b">#6b5400</div>
-  </div>
-  <div class="scale-stop" style="background:#a08800">
-    <div class="scale-stop-name" style="color:#fdf9e8">700</div>
-    <div class="scale-stop-hex" style="color:#faf2cc">#a08800</div>
-  </div>
-  <div class="scale-stop" style="background:#edcd44">
-    <div class="scale-stop-name" style="color:#3d3000">600 ★</div>
-    <div class="scale-stop-hex" style="color:#6b5400">#edcd44</div>
-  </div>
-  <div class="scale-stop" style="background:#f2d96d">
-    <div class="scale-stop-name" style="color:#3d3000">500</div>
-    <div class="scale-stop-hex" style="color:#6b5400">#f2d96d</div>
-  </div>
-  <div class="scale-stop" style="background:#f6e49b">
-    <div class="scale-stop-name" style="color:#3d3000">400</div>
-    <div class="scale-stop-hex" style="color:#6b5400">#f6e49b</div>
-  </div>
-  <div class="scale-stop" style="background:#faf2cc">
-    <div class="scale-stop-name" style="color:#6b5400">300</div>
-    <div class="scale-stop-hex" style="color:#a08800">#faf2cc</div>
-  </div>
-  <div class="scale-stop" style="background:#fdf9e8">
-    <div class="scale-stop-name" style="color:#a08800">100</div>
-    <div class="scale-stop-hex" style="color:#edcd44">#fdf9e8</div>
-  </div>
-</div>
-
-<!-- DARK full scale -->
-<div class="section-label">Dark — full scale</div>
-<div class="scale">
-  <div class="scale-stop" style="background:#0d0d11">
-    <div class="scale-stop-name" style="color:#c4c4ca">900</div>
-    <div class="scale-stop-hex" style="color:#8a8a95">#0d0d11</div>
-  </div>
-  <div class="scale-stop" style="background:#202027">
-    <div class="scale-stop-name" style="color:#c4c4ca">800 ★</div>
-    <div class="scale-stop-hex" style="color:#8a8a95">#202027</div>
-  </div>
-  <div class="scale-stop" style="background:#2e2e38">
-    <div class="scale-stop-name" style="color:#c4c4ca">700</div>
-    <div class="scale-stop-hex" style="color:#8a8a95">#2e2e38</div>
-  </div>
-  <div class="scale-stop" style="background:#4a4a54">
-    <div class="scale-stop-name" style="color:#f7f7f8">600</div>
-    <div class="scale-stop-hex" style="color:#c4c4ca">#4a4a54</div>
-  </div>
-  <div class="scale-stop" style="background:#6a6a75">
-    <div class="scale-stop-name" style="color:#f7f7f8">500</div>
-    <div class="scale-stop-hex" style="color:#c4c4ca">#6a6a75</div>
-  </div>
-  <div class="scale-stop" style="background:#8a8a95">
-    <div class="scale-stop-name" style="color:#f7f7f8">400</div>
-    <div class="scale-stop-hex" style="color:#f7f7f8">#8a8a95</div>
-  </div>
-  <div class="scale-stop" style="background:#c4c4ca">
-    <div class="scale-stop-name" style="color:#202027">300</div>
-    <div class="scale-stop-hex" style="color:#4a4a54">#c4c4ca</div>
-  </div>
-  <div class="scale-stop" style="background:#f7f7f8;border:1px solid rgba(0,0,0,0.06)">
-    <div class="scale-stop-name" style="color:#202027">100</div>
-    <div class="scale-stop-hex" style="color:#4a4a54">#f7f7f8</div>
-  </div>
-</div>
-
-<!-- Hero -->
-<div class="section-label">Hero section</div>
 <div class="mock-hero">
   <div class="mock-lbl">Σχολή Οδηγών · Αθήνα</div>
   <div class="mock-h1">Μάθε να οδηγείς<br>με σιγουριά.</div>
@@ -249,7 +160,6 @@ body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px
   </div>
 </div>
 
-<!-- Stats purple -->
 <div class="mock-stats">
   <div class="stat"><div class="stat-num">1979</div><div class="stat-lbl">Από το έτος</div></div>
   <div class="stat"><div class="stat-num">85%</div><div class="stat-lbl">Επιτυχία</div></div>
@@ -257,69 +167,55 @@ body { font-family: 'Inter', sans-serif; background: #e8e8e8; padding: 32px 24px
   <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Κατηγορίες</div></div>
 </div>
 
-<!-- Cards — light tints -->
-<div class="section-label">Cards — light tints (100)</div>
+<!-- Light cards -->
+<div class="section-label">Cards — light</div>
 <div class="mock-cards">
   <div class="card" style="background:#fff0eb;border:1.5px solid #ffd4c5">
-    <div class="card-icon" style="background:#ff4212">Β</div>
-    <div class="card-title" style="color:#5c1500">Αυτοκίνητο</div>
-    <div class="card-desc" style="color:#8a1f00">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
+    <div class="card-icon" style="background:#ff4212;color:#fff">Β</div>
+    <div class="card-title" style="color:#202027">Αυτοκίνητο</div>
+    <div class="card-desc" style="color:#6a6a75">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
     <div class="card-cta" style="color:#ff4212">Μάθε περισσότερα →</div>
   </div>
   <div class="card" style="background:#f0ecfa;border:1.5px solid #d8cef0">
-    <div class="card-icon" style="background:#6048b8">Α</div>
-    <div class="card-title" style="color:#1e1240">Μοτοσυκλέτα</div>
-    <div class="card-desc" style="color:#362270">Για κάθε επίπεδο εμπειρίας.</div>
+    <div class="card-icon" style="background:#6048b8;color:#fff">Α</div>
+    <div class="card-title" style="color:#202027">Μοτοσυκλέτα</div>
+    <div class="card-desc" style="color:#6a6a75">Για κάθε επίπεδο εμπειρίας.</div>
     <div class="card-cta" style="color:#6048b8">Μάθε περισσότερα →</div>
   </div>
   <div class="card" style="background:#fdf9e8;border:1.5px solid #faf2cc">
     <div class="card-icon" style="background:#edcd44;color:#202027">Γ</div>
-    <div class="card-title" style="color:#3d3000">Επαγγελματικά</div>
-    <div class="card-desc" style="color:#6b5400">Για επαγγελματική χρήση.</div>
-    <div class="card-cta" style="color:#a08800">Μάθε περισσότερα →</div>
+    <div class="card-title" style="color:#202027">Επαγγελματικά</div>
+    <div class="card-desc" style="color:#6a6a75">Για επαγγελματική χρήση.</div>
+    <div class="card-cta" style="color:#6b5400">Μάθε περισσότερα →</div>
   </div>
 </div>
 
-<!-- Cards — dark tints -->
-<div class="section-label">Cards — dark tints (700–800)</div>
+<!-- Dark cards -->
+<div class="section-label">Cards — dark</div>
 <div class="mock-cards">
-  <div class="card" style="background:#c43010;border:none">
-    <div class="card-icon" style="background:#8a1f00">Β</div>
+  <div class="card" style="background:#8a1f00">
+    <div class="card-icon" style="background:#ff4212;color:#fff">Β</div>
     <div class="card-title" style="color:#fff0eb">Αυτοκίνητο</div>
-    <div class="card-desc" style="color:rgba(255,240,235,0.7)">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
+    <div class="card-desc" style="color:rgba(255,240,235,0.65)">Η πιο δημοφιλής επιλογή για νέους οδηγούς.</div>
     <div class="card-cta" style="color:#fff0eb">Μάθε περισσότερα →</div>
   </div>
-  <div class="card" style="background:#4c3494;border:none">
-    <div class="card-icon" style="background:#362270">Α</div>
+  <div class="card" style="background:#362270">
+    <div class="card-icon" style="background:#6048b8;color:#fff">Α</div>
     <div class="card-title" style="color:#f0ecfa">Μοτοσυκλέτα</div>
-    <div class="card-desc" style="color:rgba(240,236,250,0.7)">Για κάθε επίπεδο εμπειρίας.</div>
+    <div class="card-desc" style="color:rgba(240,236,250,0.65)">Για κάθε επίπεδο εμπειρίας.</div>
     <div class="card-cta" style="color:#d8cef0">Μάθε περισσότερα →</div>
   </div>
-  <div class="card" style="background:#a08800;border:none">
-    <div class="card-icon" style="background:#6b5400;color:#faf2cc">Γ</div>
+  <div class="card" style="background:#6b5400">
+    <div class="card-icon" style="background:#edcd44;color:#202027">Γ</div>
     <div class="card-title" style="color:#fdf9e8">Επαγγελματικά</div>
-    <div class="card-desc" style="color:rgba(253,249,232,0.7)">Για επαγγελματική χρήση.</div>
+    <div class="card-desc" style="color:rgba(253,249,232,0.65)">Για επαγγελματική χρήση.</div>
     <div class="card-cta" style="color:#faf2cc">Μάθε περισσότερα →</div>
   </div>
 </div>
 
-<!-- Light section -->
 <div class="mock-light">
   <div class="light-h">Γιατί <span style="color:#ff4212">DC Drive;</span></div>
   <div class="light-s">Εμπειρία από το 1979, υψηλό ποσοστό επιτυχίας και εκπαιδευτές που νοιάζονται.</div>
-</div>
-
-<!-- Badges -->
-<div class="badges-row">
-  <span style="font-size:10px;color:#767676;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-right:4px">Badges:</span>
-  <span class="badge" style="background:#ff4212;color:#fff">Accent</span>
-  <span class="badge" style="background:#8a1f00;color:#fff0eb">Dark Red</span>
-  <span class="badge" style="background:#6048b8;color:#fff">Purple</span>
-  <span class="badge" style="background:#362270;color:#d8cef0">Dark Purple</span>
-  <span class="badge" style="background:#edcd44;color:#202027">Yellow</span>
-  <span class="badge" style="background:#a08800;color:#fdf9e8">Dark Yellow</span>
-  <span class="badge" style="background:#fff0eb;color:#ff4212;border:1px solid #ffd4c5">Light Red</span>
-  <span class="badge" style="background:#f0ecfa;color:#6048b8;border:1px solid #d8cef0">Light Purple</span>
 </div>
 
 </div>
